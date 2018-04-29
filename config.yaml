@@ -3,3 +3,4 @@ disablePathToLower: true
 languageCode: en-us
 title: Just a blog
 theme: "herring-cove"
+newContentEditor: vim

@@ -58,9 +58,9 @@ For this kind of setup, there is an assumption, that in a cluster exists
 a shared storage directory. It should be deployed using some kind of
 network-based filesystem. You could try with NFS or GlusterFS.
 
-{% gist 3958555  core-site.xml %}
+{{% gist 3958555  "core-site.xml" %}}
 
-{% gist 3958555  hdfs-site.xml %}
+{{% gist 3958555  "hdfs-site.xml" %}}
 
 This setup is quite OK, as long as you're comfortable with maintaining a
 separate service (network storage) for handling the HA state. It seems
@@ -92,9 +92,9 @@ shared edits directory solution. The only difference is the value for
 *dfs.namenode.shared.edits.dir*. This now points to all the journal
 nodes deployed in our cluster.
 
-{% gist 3973262 core-site.xml %}
+{{% gist 3973262 "core-site.xml" %}}
 
-{% gist 3973262 hdfs-site.xml %}
+{{% gist 3973262 "hdfs-site.xml" %}}
 
 Infrastructure
 =============
