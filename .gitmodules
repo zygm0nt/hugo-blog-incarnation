@@ -8,3 +8,9 @@
 [submodule "themes/hyde"]
 	path = themes/hyde
 	url = https://github.com/spf13/hyde
+[submodule "themes/natrium"]
+	path = themes/natrium
+	url = https://github.com/mobybit/hugo-natrium-theme
+[submodule "themes/manis"]
+	path = themes/manis
+	url = https://github.com/yursan9/manis-hugo-theme
