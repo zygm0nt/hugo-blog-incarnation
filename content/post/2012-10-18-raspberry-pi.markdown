@@ -1,5 +1,7 @@
 ---
-categories: hack, electronics
+categories: 
+    - hack 
+    - electronics
 comments: true
 date: 2012-10-18T00:00:00Z
 title: raspberry-pi
