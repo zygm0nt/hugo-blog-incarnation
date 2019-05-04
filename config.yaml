@@ -6,6 +6,8 @@ name: Just a blog
 theme: natrium
 newContentEditor: vim
 googleAnalytics: "UA-172194-10"
+author: Marcin Cylke
+buildDrafts: true
 params:
     disqus: marcinbloguje
 menu:
@@ -19,3 +21,7 @@ menu:
     pre: <i class='fa fa-road'></i>
     url: /getting-started/
     weight: -100
+    
+taxonomies:
+    tag: "tags"
+    category: "categories"
