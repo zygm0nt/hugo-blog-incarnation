@@ -6,6 +6,7 @@ comments: true
 date: 2016-07-07T00:00:00Z
 title: Should you switch to Mac?
 url: /2016/07/07/mac-os-x-switch/
+aliases: /blog/2016/07/07/mac-os-x-switch/
 ---
 
 ![enter image description here](https://farm9.staticflickr.com/8064/8229071681_02ffdb91dc_z_d.jpg)*by Flick user [raneko](https://www.flickr.com/photos/raneko/8229071681/in/photolist-dxb9je-sEQEP-5gDCSr-PE6FE-7Pa2t3-5yhFqq-MsHbZ-tEVFv-kBEvsd-5uPrGV-a5wisf-Ea1We-5tX2pp-22ybhw-ivTix6-5yk9cA-kBCugR-gcSkD-8cdXjv-asK9Y-7ZM66R-8N4eSG-4mchWA-4pjwaT-Gy8BR-7HPwfe-dxb9hv-4rXMuz-h6gJgm-9jULZ6-5SPsfu-kBECo7-6UUwCT-5whRwW-4rujwZ-8Kye5Q-9hN1d6-5utN7V-k9drqQ-4QPsUy-8VEazh-8UB7Ms-8VEaEq-neQih-8EHChx-ecth3o-8yrLUn-o7oNS-kBCXKM-6UYBrs)*

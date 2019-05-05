@@ -7,6 +7,8 @@ categories:
 comments: true
 date: 2013-12-08T00:00:00Z
 title: Simple HBase ORM
+aliases:
+    /blog/2013/12/08/simple-hbase-orm/
 url: /2013/12/08/simple-hbase-orm/
 ---
 

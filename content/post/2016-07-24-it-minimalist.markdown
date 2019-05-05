@@ -4,6 +4,7 @@ comments: true
 date: 2016-07-24T00:00:00Z
 title: IT minimalist
 url: /2016/07/24/it-minimalist/
+aliases: /blog/2016/07/24/it-minimalist/
 ---
 
 This is me at this moment in time:
