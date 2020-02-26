@@ -56,7 +56,7 @@ And then came the enlightenment! Why not go with using Git facilities
 all along! Use submodules Marcin!
 
 
-![please do backups](/post_images/luke_backups.png)
+![please do backups](/post_images/luke_submodules.png)
 
 
 And so I did!

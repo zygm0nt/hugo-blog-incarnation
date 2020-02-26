@@ -1,8 +1,8 @@
 baseurl: http://marcin.cylke.com.pl/
 disablePathToLower: true
 languageCode: en-us
-title: Just a blog
-name: Just a blog
+title: Tech ramblings by Marcin
+name: Tech ramblings by Marcin
 theme: natrium
 newContentEditor: vim
 googleAnalytics: "UA-172194-10"
