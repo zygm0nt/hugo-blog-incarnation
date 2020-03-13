@@ -3,13 +3,15 @@ disablePathToLower: true
 languageCode: en-us
 title: Tech ramblings by Marcin
 name: Tech ramblings by Marcin
-theme: natrium
+#theme: natrium
+theme: manis
 newContentEditor: vim
 googleAnalytics: "UA-172194-10"
 author: Marcin Cylke
 buildDrafts: true
 params:
     disqus: marcinbloguje
+    LatestCount: 10
 menu:
   main:
   - identifier: about

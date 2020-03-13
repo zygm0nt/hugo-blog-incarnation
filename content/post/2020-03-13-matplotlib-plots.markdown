@@ -5,8 +5,8 @@ url: /2020/03/13/plotting-with-matplotlib/
 draft: false
 comments: true
 categories: 
-- it
-- python
+    - it
+    - python
 ---
 
 Though somewhat strange I happen to come to a need of having a plot of
