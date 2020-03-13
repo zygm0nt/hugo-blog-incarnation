@@ -46,7 +46,7 @@ The actual work is done with a service class, that should extend class
 
 Then it is possible to just call:
 
-<script src="https://gist.github.com/zygm0nt/7863407.js"></script>
+{{< gist zygm0nt 7863407 >}}
 
 Note that there are more methods you can use on BaseHadoopInteraction.
 You can also do:
