@@ -20,7 +20,7 @@ menu:
     url: /about/
     weight: -110
   - identifier: map-my-dreams
-    name: map my dreams
+    name: map-my-dreams
     pre: <i class='fa fa-heart'></i>
     url: /map-my-dreams/
     weight: -110

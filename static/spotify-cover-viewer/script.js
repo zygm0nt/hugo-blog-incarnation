@@ -17,10 +17,11 @@ let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
-const clientId = '2102d6bf57714410a8f50dd1ccadc571';
-const redirectUri = 'https://spotify-implicit-grant.glitch.me';
+const clientId = 'de59d7eac13a45c988f6cfff77a83a73'
+const redirectUri = 'https://marcin.cylke.com.pl/spotify-cover-viewer/'
 const scopes = [
-  'user-top-read'
+  'user-top-read',
+  'user-library-read'
 ];
 
 // If there is no token, redirect to Spotify authorization
@@ -41,4 +42,14 @@ $.ajax({
      });
    }
 });
+
+$.ajax({
+   url: "https://api.spotify.com/v1/me/albums",
+   type: "GET",
+   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+   success: function(data) { 
+       println(data);
+   }
+});
+
 
