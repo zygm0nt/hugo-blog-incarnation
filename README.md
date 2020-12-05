@@ -1,6 +1,21 @@
 
+<!-- vim-markdown-toc GFM -->
 
-How to install older version of Hugo o Mac?
+* [how to run deploy script with hugo installed on the side](#how-to-run-deploy-script-with-hugo-installed-on-the-side)
+* [How to install older version of Hugo o Mac?](#how-to-install-older-version-of-hugo-o-mac)
+
+<!-- vim-markdown-toc -->
+
+
+## how to run deploy script with hugo installed on the side
+
+just set an env variable:
+```
+ export HUGO=~/hugo/hugo
+```
+
+
+## How to install older version of Hugo o Mac?
 
 ```
 Then I tried to see if there was an official way to downgrade my version. There are release tags on GitHub for the official Hugo repo which I downloaded but wasn’t sure how to install these properly as I had previously installed Hugo with brew.

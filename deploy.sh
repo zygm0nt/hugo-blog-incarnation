@@ -1,9 +1,11 @@
 #!/bin/bash
 
+HUGO=${HUGO:-hugo}
+
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
-hugo -F # if using a theme, replace with `hugo -t <YOURTHEME>`
+${HUGO} -F # if using a theme, replace with `hugo -t <YOURTHEME>`
 
 # Go To Public folder
 cd public
