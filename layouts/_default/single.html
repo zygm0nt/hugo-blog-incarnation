@@ -9,7 +9,8 @@
     <ul class="article-taxonomy">
       {{ if .Params.categories }}            
       <li>
-        <i class="fa fa-category"></i>{{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}{{ end }}<a href="{{ "categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
+        <i class="fa fa-category"></i>{{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}{{ end }}<a href="{{ "categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+        <span>|</span>{{ end }}
       </li>
       {{ end }}
     

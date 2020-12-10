@@ -4,7 +4,7 @@ languageCode: en-us
 title: Tech ramblings by Marcin
 name: Tech ramblings by Marcin
 #theme: natrium
-theme: manis
+theme: manis-custom
 newContentEditor: vim
 googleAnalytics: "UA-172194-10"
 author: Marcin Cylke
@@ -19,16 +19,16 @@ menu:
     pre: <i class='fa fa-heart'></i>
     url: /about/
     weight: -110
-  - identifier: map-my-dreams
-    name: map-my-dreams
-    pre: <i class='fa fa-heart'></i>
-    url: /map-my-dreams/
-    weight: -110
-  - identifier: spotify-cover-viewer
-    name: spotify-cover-viewer
-    pre: <i class='fa fa-heart'></i>
-    url: /spotify-cover-viewer/
-    weight: -110
+    #  - identifier: map-my-dreams
+    #name: map-my-dreams
+    #pre: <i class='fa fa-heart'></i>
+    #url: /map-my-dreams/
+    #weight: -110
+    #- identifier: spotify-cover-viewer
+    #name: spotify-cover-viewer
+    #pre: <i class='fa fa-heart'></i>
+    #url: /spotify-cover-viewer/
+    #weight: -110
    
 taxonomies:
     tag: "tags"
