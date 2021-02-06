@@ -1,8 +1,8 @@
 ---
 title: "running gamecube emulator on Linux"
-date: 2020-11-19T00:00:00Z
-url: /2020/11/19/running-gamecube-on-linux
-draft: true
+date: 2021-02-07T00:00:00Z
+url: /2021/02/07/running-gamecube-on-linux
+draft: false
 comments: true
 categories: 
     - it

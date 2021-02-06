@@ -1,8 +1,8 @@
 ---
 title: "awesome WM and how to handle multiple monitors"
-date: 2020-11-24T00:00:00Z
-url: /2020/11/24/awesomewm-multiple-monitors
-draft: true
+date: 2021-02-06T00:00:00Z
+url: /2021/02/06/awesomewm-multiple-monitors
+draft: false
 comments: true
 categories: 
     - it
