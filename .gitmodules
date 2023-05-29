@@ -17,3 +17,18 @@
 [submodule "themes/manis-custom"]
 	path = themes/manis-custom
 	url = https://github.com/zygm0nt/manis-hugo-theme
+[submodule "themes/yinyang"]
+	path = themes/yinyang
+	url = git@github.com:joway/hugo-theme-yinyang.git
+[submodule "themes/xmin"]
+	path = themes/xmin
+	url = https://github.com/yihui/hugo-xmin
+[submodule "themes/hugo-theme-texify"]
+	path = themes/hugo-theme-texify
+	url = https://github.com/queensferryme/hugo-theme-texify.git
+[submodule "themes/ink-free"]
+	path = themes/ink-free
+	url = https://github.com/chollinger93/ink-free
+[submodule "themes/simple-style"]
+	path = themes/simple-style
+	url = https://github.com/yanlinlin82/simple-style
