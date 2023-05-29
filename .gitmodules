@@ -28,3 +28,6 @@
 [submodule "themes/simple-style"]
 	path = themes/simple-style
 	url = https://github.com/yanlinlin82/simple-style
+[submodule "public"]
+	path = public
+	url = git@github.com:zygm0nt/zygm0nt.github.com.git
