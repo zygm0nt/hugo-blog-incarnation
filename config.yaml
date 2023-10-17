@@ -1,14 +1,18 @@
-baseurl: http://marcin.cylke.com.pl/
+baseurl: https://marcin.cylke.com.pl/
 disablePathToLower: true
 languageCode: en-us
 title: Tech ramblings by Marcin
 name: Tech ramblings by Marcin
-  # theme: xmin
+# theme: xmin
 theme: simple-style
+#theme: gokarna
 #theme: manis-custom
 newContentEditor: vim
 author: Marcin Cylke
 buildDrafts: true
+services:
+  rss:
+    limit: 10
 params:
     disqus: marcinbloguje
     LatestCount: 10

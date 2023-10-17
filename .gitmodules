@@ -31,3 +31,6 @@
 [submodule "public"]
 	path = public
 	url = git@github.com:zygm0nt/zygm0nt.github.com.git
+[submodule "themes/gokarna"]
+	path = themes/gokarna
+	url = https://github.com/526avijitgupta/gokarna.git
