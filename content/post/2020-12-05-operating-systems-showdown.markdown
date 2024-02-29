@@ -17,7 +17,7 @@ categories:
 The reason to write this blog post was a presentation I watched some time ago, and commented on it on Twitter:
 
 
-{{< tweet 1213955061409292290 >}}
+{{< tweet user="zygm0nt" id="1213955061409292290" >}}
 
 
 So to be specific - the whole presentation was rather negative towards security model used along OpenBSD development. The presentation itself took a lot of time to go over recent security issues, false claims, etc.

@@ -7,6 +7,8 @@ run:
 drafts:
 	$(HUGO) list drafts
 
+init: prepare run
+
 prepare:
 	git submodule update  --init
 
