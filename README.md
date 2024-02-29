@@ -14,6 +14,10 @@ just set an env variable:
  export HUGO=~/hugo/hugo
 ```
 
+## RSS Feed
+
+http://localhost:1313/index.xml
+
 
 ## How to install older version of Hugo o Mac?
 
