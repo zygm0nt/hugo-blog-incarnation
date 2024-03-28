@@ -3,10 +3,8 @@ disablePathToLower: true
 languageCode: en-us
 title: Tech ramblings by Marcin
 name: Tech ramblings by Marcin
-# theme: xmin
 theme: simple-style
-#theme: gokarna
-#theme: manis-custom
+# theme: hugo-prose
 newContentEditor: vim
 author: Marcin Cylke
 buildDrafts: true
