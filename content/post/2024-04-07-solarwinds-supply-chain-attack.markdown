@@ -11,7 +11,7 @@ categories:
     - security
 ---
 
-![Image](/post_images/solarwinds-supply-chain-attack-0.webp)
+![ Create an abstract, humorous illustration of the SolarWinds supply chain attack, incorporating elements of solar and wind in a playful manner. The scene should transform into an even more abstract and artistic representation, where the digital landscape of computers and servers intermingles with solar panels and wind turbines in a surreal composition. The sneaky figure trying to insert a USB drive should be stylized as a quirky, almost abstract character, blending into this whimsical world. Use bold, vibrant colors like magenta, orange, lime green, and electric blue to give the artwork an energetic and imaginative flair, moving away from realism and closer to an abstract art style.  ](/post_images/solarwinds-supply-chain-attack-0.webp)
 
 
 Some time ago, I read a good writeup about the SolarWinds incident that happened in 2020. You can get to that article by clicking this [link](https://www.wired.com/story/the-untold-story-of-solarwinds-the-boldest-supply-chain-hack-ever/). This article is well-written and portrays multiple persons involved in solving the case. Really enjoyable piece. 
