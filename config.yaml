@@ -8,6 +8,7 @@ theme: simple-style
 newContentEditor: vim
 author: Marcin Cylke
 buildDrafts: true
+paginate: 20
 services:
   rss:
     limit: 10

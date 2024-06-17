@@ -7,6 +7,8 @@ draft: false
 comments: true
 categories:
     - it
+    - google
+    - photos
 
 ---
 
@@ -29,6 +31,7 @@ An ideal solution right now would be to:
 Ideally both of those should happen automatically, according to some predefined schedule. Of course be as maintenance-free as possible.
 
 I have ~200GB of data that I would like backed up on a regular basis. I'd imagine this is not the biggest set of photos a person can have stored there. 
+
 ## First attempts
 
 My first approach was to synchronize all the files and all the photos using some syncing tools. Store them on a local hard drive, for future use. But that was less then satisfying. Mainly due to how long the process would take for my size of data.
@@ -44,7 +47,7 @@ There's also a paid tool https://photovaultone.com/ - but it's just another smal
 
 ## So there's Google Takeout
 
-And yet, there's this Google-offered option, that's designed as a way to take all your data out of Google Cloud and potentially go to some other vendor, or host that on your own. Great idea! Of course Google, as other BigTech companies was coherced to implement it mainly due to GDPR restrictions - so that any user can take the data he/she owns and move out to other place.
+And yet, there's this Google-offered option, that's designed as a way to take all your data out of Google Cloud and potentially go to some other vendor, or host that on your own. Great idea! ~~Of course Google, as other BigTech companies was coherced to implement it mainly due to GDPR restrictions - so that any user can take the data he/she owns and move out to other place.~~ Actually, Google Takeout was created before GDPR restrictions - this comment brings some info on that: 
 Naturally, I thought I'd use this approach to backup my data.
 This seemed even more amazing, as there's an option to backup directly to other providers - the options are Dropbox, Microsoft OneDrive, Box.
 
@@ -58,6 +61,7 @@ On the surface, it looks nice. You can create a scheduled backup process - that 
 You can select data you want to export - be it just Photos, or maybe whole Google Drive, and Calendar, Gmail. Everything is there.
 
 But when it actually needs to happen - that's where the issues happen.
+
 ## Issues
 
 - the process always fails - no matter what's the size of a chunk I choose
@@ -77,6 +81,7 @@ I share my photo collection with my closest family. I suspect that Google Takeou
 If I'll be able to make this process reliable, I'd need to think of data retention on target.
 
 Right now I backup just Google Photos - wanted to move to other parts of the ecosystem, when the backup issues are sorted out.
+
 ## Follow-up actions
 
 - try other providers - I don't want to use Dropbox, but perhaps Box would work better then OneDrive?
@@ -89,3 +94,9 @@ Right now I backup just Google Photos - wanted to move to other parts of the eco
 So, for know I still do the backups. I accept the issues with Google Takeout. It's just better to have majority of my data, then to not have any of that.
 
 ## Do you have any recommendations on better backup solutions for Google Photos? Leave your thoughts in the comments!
+
+
+*Edited:*
+- *2024-06-17 - correct reference to GDPR and Google Takeout*
+    - comment from `BXlnt2EachOther`: *I don't think this can be correct. Takeout was released June 28, 2011. GDPR was passed April 14, 2016 and went into effect two years later.*
+    - comment from `jchw`: *Well, that's just simply false. Google Takeout was in development and released much earlier than GDPR was published. It was an internal project of a weird Google team known publicly as the "Google Data Liberation Front". I wasn't actually at Google during any of this, but I recall Google Takeout from ages ago, and it's hard to forget, in part because it seemed so novel for the time, and also the name "Data Liberation Front" stuck out as being surprisingly bold.*
