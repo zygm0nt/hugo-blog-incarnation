@@ -9,6 +9,7 @@ newContentEditor: vim
 author: Marcin Cylke
 buildDrafts: true
 paginate: 20
+favicon: true
 services:
   rss:
     limit: 10
