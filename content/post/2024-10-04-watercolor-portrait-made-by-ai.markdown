@@ -12,7 +12,7 @@ categories:
 ---
 
 
-{{< img src="/post_images/watercolor-portrait-made-by-ai-0.png" title="An illustration" >}}
+{{< img src="/post_images/watercolor-portrait-made-by-ai-0.png" title="An example illustration" class="blog-post-image" >}}
 
 This article is inspired by a post I've stumbled upon on LinkedIn, by [Guido Appenzeller](https://www.linkedin.com/posts/appenz_flux-is-incredibly-good-to-generate-profile-activity-7231716430889541632-0XL8)
 

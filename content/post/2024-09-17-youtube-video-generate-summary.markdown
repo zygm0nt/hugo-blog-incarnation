@@ -10,7 +10,7 @@ categories:
 
 ---
 
-![Image](/post_images/maciej-je-generate-summary-0.png)
+{{< img src="/post_images/maciej-je-generate-summary-0.png" title="An influencer cooking a meal" class="blog-post-image" >}}
 
 
 I really like watching some culinary channels on Youtube. Those can be roughly divided into two categories:
@@ -19,7 +19,7 @@ I really like watching some culinary channels on Youtube. Those can be roughly d
 
 It's nice to watch, but after that not too much I can keep from that. If I like a specific recipe, and I'd like to cook that think it's really counter productive to try cooking from the video. I'd constantly need to pause, rewind, replay specific fragments.
 
-Same for review videos - suppose I've watched an interesting video about food recommendations from Rome, with a set of places and a bunch of dishes per restaurant. I won't remember all that. 
+Same for review videos - suppose I've watched an interesting video about food recommendations from Rome, with a set of places and a bunch of dishes per restaurant. I won't remember all that.
 
 This simple idea came out of the proliferation of various advanced models:
 - fast transcription models
@@ -56,7 +56,7 @@ An interesting feature of `whisper.cpp` is that it can now color-code confidence
 ./main -f ../output.wav -m models/ggml-small.bin -l pl
 ```
 
-or 
+or
 
 ```
 ./main -m models/ggml-base.en.bin -f samples/gb0.wav --print-colors
@@ -75,4 +75,3 @@ Not the most streamlined approach, as it would have been better to stitch all th
 Future ideas:
 * create an ebook from the contents of the videos
 * this would require selecting key frames from the video to illustrate the articles
-
