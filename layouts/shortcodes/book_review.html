@@ -1,0 +1,10 @@
+<div class="review-container">
+    <div class="book-cover">
+        <img src="{{.Get "book_cover"}}" alt="{{.Get "title"}} Book Cover" />
+    </div>
+    <div class="review-text">
+        <h2>Book Review: <em>{{.Get "title"}}</em> by {{.Get "author"}}</h2>
+
+        {{ .Inner | markdownify }}
+    </div>
+</div>
