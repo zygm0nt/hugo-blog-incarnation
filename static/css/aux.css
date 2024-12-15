@@ -22,3 +22,17 @@
   background-size: contain;
   display: inline-block;
 }
+
+nav#TableOfContents {
+
+    border: 3px solid black;
+    padding: 1px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-right: 5px;
+    width: 180px;
+    background-color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
