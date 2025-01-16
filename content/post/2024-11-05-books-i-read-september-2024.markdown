@@ -6,7 +6,8 @@ url: /2024/11/05/books-i-read-september-2024
 draft: false
 comments: true
 categories:
-    - it
+    - reading
+    - review
 
 ---
 
