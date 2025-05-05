@@ -19,13 +19,21 @@ params:
     utterances:
       repo: zygm0nt/hugo-blog-incarnation
       endpoint: "https://utteranc.es/"
-menu:
-  main:
-  - identifier: about
-    name: about me 
-    pre: <i class='fa fa-heart'></i>
-    url: /about/
-    weight: -110
+sectionPagesMenu: "main"
+# menu:
+#   main:
+#   - identifier: fiction
+#     name: fiction 
+#     pageRef: fiction
+#     pre: <i class='fa fa-heart'></i>
+#     url: /tags/fiction/
+#     weight: -130
+#   - identifier: about
+#     name: about me 
+#     pageRef: about
+#     pre: <i class='fa fa-heart'></i>
+#     url: /about/
+#     weight: -110
     #  - identifier: map-my-dreams
    #name: map-my-dreams
     #pre: <i class='fa fa-heart'></i>

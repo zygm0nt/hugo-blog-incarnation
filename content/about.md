@@ -3,10 +3,11 @@ title: About me
 author: Marcin Cylke
 categories: [Hugo, Theme]
 tags: [about-me, short]
-menu:
-  header:
-    name: About
-    weight: 2
+# menu:
+#   header:
+#     name: About
+#     weight: 2
+#     pageRef: about
 ---
 
 Welcome to my corner of the digital world! I'm Marcin Cylke 👋, a multifaceted individual with a passion for software development 💻, the written word 📚, outdoor adventures 🏃‍♂️, and the nostalgic charm of retro computers 🕹️.
