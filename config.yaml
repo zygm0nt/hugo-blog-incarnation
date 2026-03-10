@@ -2,58 +2,67 @@ baseurl: https://marcin.cylke.com.pl/
 disablePathToLower: true
 languageCode: en-us
 title: Tech ramblings by Marcin
-name: Tech ramblings by Marcin
-theme: simple-style
-# theme: hugo-prose
+theme: PaperMod
 newContentEditor: vim
 author: Marcin Cylke
 buildDrafts: true
-paginate: 20
-favicon: true
+pagination:
+  pagerSize: 20
+
 services:
   rss:
     limit: 10
+
 params:
-    disqus: marcinbloguje
-    LatestCount: 10
-    utterances:
-      repo: zygm0nt/hugo-blog-incarnation
-      endpoint: "https://utteranc.es/"
-sectionPagesMenu: "main"
-# menu:
-#   main:
-#   - identifier: fiction
-#     name: fiction 
-#     pageRef: fiction
-#     pre: <i class='fa fa-heart'></i>
-#     url: /tags/fiction/
-#     weight: -130
-#   - identifier: about
-#     name: about me 
-#     pageRef: about
-#     pre: <i class='fa fa-heart'></i>
-#     url: /about/
-#     weight: -110
-    #  - identifier: map-my-dreams
-   #name: map-my-dreams
-    #pre: <i class='fa fa-heart'></i>
-    #url: /map-my-dreams/
-    #weight: -110
-    #- identifier: spotify-cover-viewer
-    #name: spotify-cover-viewer
-    #pre: <i class='fa fa-heart'></i>
-    #url: /spotify-cover-viewer/
-    #weight: -110
-   
+  env: production
+  title: Tech ramblings by Marcin
+  description: "Tech ramblings by Marcin - software engineering, distributed systems, and more"
+  author: Marcin Cylke
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+
+  comments: true
+
+  homeInfoParams:
+    Title: "Tech ramblings by Marcin"
+    Content: "Software engineering, distributed systems, and occasional other musings."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/zygm0nt"
+    - name: rss
+      url: "/index.xml"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 taxonomies:
-    tag: "tags"
-    category: "categories"
+  tag: "tags"
+  category: "categories"
 
-module:
-  imports:
-  - path: github.com/hugomods/icons/vendors/bootstrap
-  - path: github.com/hugomods/images
-  - path: github.com/hugomods/bootstrap
-  - path: github.com/hugomods/katex
-  - path: github.com/hugomods/utterances
-
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 30
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 40
