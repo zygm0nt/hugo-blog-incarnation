@@ -1,0 +1,58 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Init public submodule
+        run: git submodule update --init public
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.150.0'
+          extended: true
+
+      - name: Build
+        run: hugo --minify --buildDrafts=false
+
+      - name: Setup SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Deploy
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+          cd public
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to deploy"
+            exit 0
+          fi
+
+          COMMIT_SHA=$(cd .. && git rev-parse --short HEAD)
+          git commit -m "deploy: ${COMMIT_SHA} ($(date -u '+%Y-%m-%d %H:%M:%S UTC'))"
+
+          TAG="deploy-$(date -u '+%Y%m%d-%H%M%S')"
+          git tag "$TAG"
+
+          git push origin HEAD
+          git push origin "$TAG"
