@@ -47,7 +47,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
 
           cd public
+          echo "=== git status before add ==="
+          git status
           git add .
+          echo "=== git diff --cached --stat ==="
+          git diff --cached --stat
           if git diff --cached --quiet; then
             echo "No changes to deploy"
             exit 0
