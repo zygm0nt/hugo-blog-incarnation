@@ -1,0 +1,5 @@
+<span class="tooltip-wrapper">
+  <label class="tooltip-trigger" for="tooltip-{{ .Ordinal }}">{{ .Inner }}<span class="tooltip-icon">&#8239;&#x2026;</span></label>
+  <input class="tooltip-checkbox" type="checkbox" id="tooltip-{{ .Ordinal }}">
+  <span class="tooltip-content">{{ .Get 0 | markdownify }}</span>
+</span>

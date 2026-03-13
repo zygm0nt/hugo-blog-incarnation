@@ -1,0 +1,89 @@
+/* Tooltips */
+
+.tooltip-checkbox {
+    display: none;
+}
+
+.tooltip-wrapper {
+    position: relative;
+    display: inline;
+}
+
+.tooltip-trigger {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--secondary);
+    transition: border-color 0.15s;
+}
+
+.tooltip-icon {
+    font-size: 0.8em;
+    color: var(--secondary);
+    transition: color 0.15s;
+}
+
+.tooltip-content {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 220px;
+    max-width: 340px;
+    background: var(--theme);
+    color: var(--content);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    padding: 10px 14px;
+    font-size: 0.88em;
+    line-height: 1.55;
+    pointer-events: none;
+    white-space: normal;
+}
+
+.tooltip-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Desktop: show on hover */
+@media (hover: hover) {
+    .tooltip-wrapper:hover .tooltip-content,
+    .tooltip-wrapper:focus-within .tooltip-content {
+        display: block;
+    }
+
+    .tooltip-wrapper:hover .tooltip-trigger,
+    .tooltip-wrapper:focus-within .tooltip-trigger {
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .tooltip-wrapper:hover .tooltip-icon,
+    .tooltip-wrapper:focus-within .tooltip-icon {
+        color: var(--primary);
+    }
+}
+
+/* Mobile / touch: toggle with checkbox */
+@media (hover: none) {
+    .tooltip-content {
+        position: static;
+        transform: none;
+        display: none;
+        width: 100%;
+        max-width: 100%;
+        pointer-events: auto;
+        margin-top: 6px;
+        box-shadow: none;
+    }
+
+    .tooltip-checkbox:checked ~ .tooltip-content {
+        display: block;
+    }
+
+    .tooltip-trigger::after {
+        content: " [+]";
+        font-size: 0.75em;
+        color: var(--secondary);
+    }
+}
