@@ -7,10 +7,13 @@
 .sidenote-label {
     cursor: pointer;
     border-bottom: 1px dotted var(--secondary);
+    transition: border-color 0.15s, font-weight 0.15s;
 }
 
 .sidenote-label:hover {
-    color: var(--secondary);
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    font-weight: bold;
 }
 
 /* Desktop: float sidenotes into the margin */
@@ -45,7 +48,9 @@
     }
 
     .sidenote:hover .sidenote-label {
-        color: var(--secondary);
+        color: var(--primary);
+        border-bottom: 2px solid var(--primary);
+        font-weight: bold;
     }
 
     .sidenote:hover .sidenote-content {
