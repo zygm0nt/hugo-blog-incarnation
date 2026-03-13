@@ -3,7 +3,7 @@ HUGO ?= hugo
 .PHONY:  drafts
 
 run:
-	$(HUGO) server
+	$(HUGO) server -D
 drafts:
 	$(HUGO) list drafts
 
