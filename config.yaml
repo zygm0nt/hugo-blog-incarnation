@@ -43,6 +43,10 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    noClasses: false
+    guessSyntax: true
+    tabWidth: 4
 
 taxonomies:
   tag: "tags"
