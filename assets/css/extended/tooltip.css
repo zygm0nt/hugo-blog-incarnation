@@ -11,14 +11,34 @@
 
 .tooltip-trigger {
     cursor: pointer;
-    border-bottom: 1px dotted var(--secondary);
-    transition: border-color 0.15s;
 }
 
 .tooltip-icon {
-    font-size: 0.8em;
-    color: var(--secondary);
-    transition: color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--primary);
+    border-radius: 99px;
+    padding: 2px 7px;
+    margin-left: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    transition: opacity 0.15s, transform 0.15s;
+    opacity: 0.75;
+}
+
+.tooltip-icon span {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--theme);
+}
+
+.tooltip-wrapper:hover .tooltip-icon,
+.tooltip-wrapper:focus-within .tooltip-icon {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .tooltip-content {
@@ -53,15 +73,6 @@
         display: block;
     }
 
-    .tooltip-wrapper:hover .tooltip-trigger,
-    .tooltip-wrapper:focus-within .tooltip-trigger {
-        border-bottom: 2px solid var(--primary);
-    }
-
-    .tooltip-wrapper:hover .tooltip-icon,
-    .tooltip-wrapper:focus-within .tooltip-icon {
-        color: var(--primary);
-    }
 }
 
 /* Mobile / touch: toggle with checkbox */
