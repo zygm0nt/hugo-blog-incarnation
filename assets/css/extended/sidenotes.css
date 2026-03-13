@@ -1,0 +1,80 @@
+/* Sidenotes */
+
+.sidenote-checkbox {
+    display: none;
+}
+
+.sidenote-label {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--secondary);
+}
+
+.sidenote-label:hover {
+    color: var(--secondary);
+}
+
+/* Desktop: float sidenotes into the margin */
+@media screen and (min-width: 1280px) {
+    .sidenote-content {
+        float: right;
+        clear: right;
+        width: 200px;
+        font-size: 0.85em;
+        line-height: 1.5;
+        color: var(--secondary);
+        border-left: 2px solid var(--border);
+        padding-left: 8px;
+        box-sizing: border-box;
+        /* negative margin-right pushes float 24px outside the content column */
+        margin-right: -224px;
+        margin-left: 0;
+        margin-top: 0.2em;
+        margin-bottom: 0.5em;
+        position: relative;
+    }
+
+    .sidenote-content.sidenote-left {
+        float: left;
+        clear: left;
+        border-left: none;
+        border-right: 2px solid var(--border);
+        padding-left: 0;
+        padding-right: 8px;
+        margin-left: -224px;
+        margin-right: 0;
+    }
+
+    .sidenote:hover .sidenote-label {
+        color: var(--secondary);
+    }
+
+    .sidenote:hover .sidenote-content {
+        color: var(--primary);
+        border-color: var(--secondary);
+    }
+}
+
+/* Mobile: toggle inline with checkbox */
+@media screen and (max-width: 1279px) {
+    .sidenote-content {
+        display: none;
+        width: 100%;
+        font-size: 0.85em;
+        line-height: 1.5;
+        color: var(--secondary);
+        border-left: 2px solid var(--border);
+        padding: 4px 8px;
+        margin: 6px 0;
+        box-sizing: border-box;
+    }
+
+    .sidenote-checkbox:checked ~ .sidenote-content {
+        display: block;
+    }
+
+    .sidenote-label::after {
+        content: " [+]";
+        font-size: 0.75em;
+        color: var(--secondary);
+    }
+}
