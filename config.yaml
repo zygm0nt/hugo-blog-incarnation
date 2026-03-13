@@ -29,6 +29,9 @@ params:
 
   comments: true
 
+  mainSections:
+    - post
+
   homeInfoParams:
     Title: "Tech ramblings by Marcin"
     Content: "Software engineering, distributed systems, and trivia."
@@ -74,3 +77,7 @@ menu:
       name: Travels
       url: /travels/
       weight: 50
+    - identifier: til
+      name: TIL
+      url: /til/
+      weight: 60
