@@ -1,0 +1,25 @@
+{{- $currentMonth := .Date.Month }}
+{{- $currentDay := .Date.Day }}
+{{- $currentYear := .Date.Year }}
+{{- $currentPage := . }}
+
+{{- $onThisDay := slice }}
+{{- range (where site.RegularPages "Section" "post") }}
+  {{- if and (eq .Date.Month $currentMonth) (eq .Date.Day $currentDay) (ne .Date.Year $currentYear) }}
+    {{- $onThisDay = $onThisDay | append . }}
+  {{- end }}
+{{- end }}
+
+{{- if $onThisDay }}
+<div class="on-this-day">
+  <h3>On this day in other years</h3>
+  <ul>
+    {{- range sort $onThisDay ".Date.Year" "desc" }}
+    <li>
+      <span class="on-this-day-year">{{ .Date.Year }}</span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}
