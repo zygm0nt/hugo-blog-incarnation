@@ -70,3 +70,7 @@ menu:
       name: Archives
       url: /archives/
       weight: 40
+    - identifier: travels
+      name: Travels
+      url: /travels/
+      weight: 50

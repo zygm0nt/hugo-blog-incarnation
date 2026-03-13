@@ -1,0 +1,189 @@
+{{- $data := site.Data.visited_places -}}
+{{- $visitedCodes := slice -}}
+{{- range $data.countries -}}
+  {{- $visitedCodes = $visitedCodes | append .code -}}
+{{- end -}}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+
+<div id="visited-map" style="height: 520px; width: calc(100% + 16rem); margin-left: -8rem; border-radius: 6px; margin-top: 1.5rem; margin-bottom: 1rem;"></div>
+<div id="visited-list"></div>
+
+<script>
+(function() {
+  var visitedData = [{{ range $i, $c := $data.countries }}{{ if $i }},{{ end }}{{ $c | jsonify | safeJS }}{{ end }}];
+  var visitedCodes = [{{ range $i, $c := $visitedCodes }}{{ if $i }},{{ end }}{{ $c | jsonify | safeJS }}{{ end }}];
+
+  // ISO 3166-1 alpha-2 → numeric (world-atlas uses numeric IDs)
+  var a2n = {"AF":"4","AL":"8","DZ":"12","AS":"16","AD":"20","AO":"24","AG":"28","AR":"32","AM":"51","AU":"36","AT":"40","AZ":"31","BS":"44","BH":"48","BD":"50","BB":"52","BY":"112","BE":"56","BZ":"84","BJ":"204","BT":"64","BO":"68","BA":"70","BW":"72","BR":"76","BN":"96","BG":"100","BF":"854","BI":"108","CV":"132","KH":"116","CM":"120","CA":"124","CF":"140","TD":"148","CL":"152","CN":"156","CO":"170","KM":"174","CG":"178","CD":"180","CR":"188","CI":"384","HR":"191","CU":"192","CY":"196","CZ":"203","DK":"208","DJ":"262","DM":"212","DO":"214","EC":"218","EG":"818","SV":"222","GQ":"226","ER":"232","EE":"233","SZ":"748","ET":"231","FJ":"242","FI":"246","FR":"250","GA":"266","GM":"270","GE":"268","DE":"276","GH":"288","GR":"300","GL":"304","GD":"308","GT":"320","GN":"324","GW":"624","GY":"328","HT":"332","HN":"340","HU":"348","IS":"352","IN":"356","ID":"360","IR":"364","IQ":"368","IE":"372","IL":"376","IT":"380","JM":"388","JP":"392","JO":"400","KZ":"398","KE":"404","KI":"296","KP":"408","KR":"410","KW":"414","KG":"417","LA":"418","LV":"428","LB":"422","LS":"426","LR":"430","LY":"434","LI":"438","LT":"440","LU":"442","MG":"450","MW":"454","MY":"458","MV":"462","ML":"466","MT":"470","MH":"584","MR":"478","MU":"480","MX":"484","FM":"583","MD":"498","MC":"492","MN":"496","ME":"499","MA":"504","MZ":"508","MM":"104","NA":"516","NR":"520","NP":"524","NL":"528","NZ":"554","NI":"558","NE":"562","NG":"566","MK":"807","NO":"578","OM":"512","PK":"586","PW":"585","PA":"591","PG":"598","PY":"600","PE":"604","PH":"608","PL":"616","PT":"620","QA":"634","RO":"642","RU":"643","RW":"646","KN":"659","LC":"662","VC":"670","WS":"882","SM":"674","ST":"678","SA":"682","SN":"686","RS":"688","SC":"690","SL":"694","SG":"702","SK":"703","SI":"705","SB":"90","SO":"706","ZA":"710","SS":"728","ES":"724","LK":"144","SD":"729","SR":"740","SE":"752","CH":"756","SY":"760","TW":"158","TJ":"762","TZ":"834","TH":"764","TL":"626","TG":"768","TO":"776","TT":"780","TN":"788","TR":"792","TM":"795","TV":"798","UG":"800","UA":"804","AE":"784","GB":"826","US":"840","UY":"858","UZ":"860","VU":"548","VE":"862","VN":"704","YE":"887","ZM":"894","ZW":"716"};
+
+  // Build set of visited numeric IDs for fast lookup
+  var visitedNumericIds = {};
+  visitedCodes.forEach(function(code) {
+    if (a2n[code]) visitedNumericIds[a2n[code]] = code;
+  });
+
+  var map = L.map('visited-map', {
+    center: [30, 15],
+    zoom: 2,
+    minZoom: 1,
+    maxZoom: 10,
+    scrollWheelZoom: false
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    noWrap: true
+  }).addTo(map);
+
+  map.once('click', function() { map.scrollWheelZoom.enable(); });
+
+  // Populate visited-list panel
+  var list = document.getElementById('visited-list');
+  var html = '<div class="visited-list-grid">';
+  visitedData.forEach(function(country) {
+    var hasCities = country.cities && country.cities.length;
+    html += '<div class="visited-country">';
+    if (hasCities) {
+      html += '<button class="visited-country-name" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'visible\')">' + country.name + '<span class="visited-toggle">›</span></button>';
+      html += '<ul class="visited-cities">';
+      country.cities.forEach(function(city) { html += '<li>' + city.name + '</li>'; });
+      html += '</ul>';
+    } else {
+      html += '<span class="visited-country-name no-cities">' + country.name + '</span>';
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  list.innerHTML = html;
+
+  var visitedStyle = {
+    fillColor: '#e07b39',
+    fillOpacity: 0.45,
+    color: '#c05a1a',
+    weight: 1.2
+  };
+  var defaultStyle = {
+    fillColor: 'transparent',
+    fillOpacity: 0,
+    color: 'transparent',
+    weight: 0
+  };
+
+  var cityIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:9px;height:9px;background:#c0392b;border:2px solid #fff;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,0.4);"></div>',
+    iconSize: [9, 9],
+    iconAnchor: [4, 4]
+  });
+
+  // Build country-info lookup by alpha-2 code
+  var countryInfo = {};
+  visitedData.forEach(function(c) { countryInfo[c.code] = c; });
+
+  // world-atlas countries-110m: ~110KB TopoJSON, reliable CDN
+  fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+    .then(function(r) { return r.json(); })
+    .then(function(world) {
+      var geojson = topojson.feature(world, world.objects.countries);
+
+      L.geoJSON(geojson, {
+        style: function(feature) {
+          var numId = String(feature.id);
+          return visitedNumericIds[numId] ? visitedStyle : defaultStyle;
+        },
+        onEachFeature: function(feature, layer) {
+          var numId = String(feature.id);
+          var alpha2 = visitedNumericIds[numId];
+          if (alpha2) {
+            var info = countryInfo[alpha2];
+            var label = info ? info.name : alpha2;
+            layer.bindTooltip(label, { sticky: true, className: 'map-country-tooltip' });
+            layer.on('mouseover', function() { this.setStyle({ fillOpacity: 0.65 }); });
+            layer.on('mouseout',  function() { this.setStyle({ fillOpacity: 0.45 }); });
+          }
+        }
+      }).addTo(map);
+
+      // City markers
+      visitedData.forEach(function(country) {
+        if (!country.cities) return;
+        country.cities.forEach(function(city) {
+          L.marker([city.lat, city.lng], { icon: cityIcon })
+            .bindPopup('<strong>' + city.name + '</strong><br><span style="color:#888">' + country.name + '</span>')
+            .addTo(map);
+        });
+      });
+    })
+    .catch(function(err) { console.error('Failed to load world-atlas TopoJSON:', err); });
+})();
+</script>
+
+<style>
+.map-country-tooltip {
+  background: rgba(30,30,30,0.85);
+  color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 0.82rem;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 6px;
+}
+.visited-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.4rem 1rem;
+  margin-top: 0.75rem;
+}
+.visited-country {
+  border-left: 2px solid #e07b39;
+  padding-left: 0.5rem;
+}
+.visited-country-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  color: inherit;
+  text-align: left;
+}
+.visited-country-name.no-cities {
+  cursor: default;
+}
+.visited-toggle {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  transition: transform 0.15s ease;
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+.visited-country-name.open .visited-toggle {
+  transform: rotate(90deg);
+}
+.visited-cities {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  font-size: 0.72rem;
+  color: var(--secondary, #888);
+  line-height: 1.5;
+  display: none;
+}
+.visited-cities.visible {
+  display: block;
+}
+.visited-cities li::before {
+  content: "· ";
+}
+</style>
