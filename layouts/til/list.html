@@ -20,6 +20,9 @@
   <div class="til-entry">
     <span class="til-date">{{ .Date.Format "2006-01-02" }}</span>
     <a class="til-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- with index .Params.tags 0 }}
+    <span class="til-tag">{{ . }}</span>
+    {{- end }}
   </div>
   {{- end }}
 </div>

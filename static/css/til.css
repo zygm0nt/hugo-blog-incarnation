@@ -28,3 +28,13 @@
 .til-title:hover {
   text-decoration: underline;
 }
+
+.til-tag {
+  flex-shrink: 0;
+  font-size: 0.75em;
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+  background: var(--code-bg);
+  color: var(--secondary);
+  border: 1px solid var(--border);
+}
