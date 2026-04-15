@@ -19,6 +19,38 @@ just set an env variable:
 http://localhost:1313/index.xml
 
 
+## Writing quality checks
+
+[Vale](https://vale.sh/) is configured to lint posts for readability, passive voice, weasel words, and prose style.
+
+**Install vale** (one-time):
+```
+brew install vale
+vale sync   # downloads style packages into .vale/styles/
+```
+
+**Check a specific post:**
+```
+make check-post FILE=content/post/your-post.markdown
+```
+
+**Check all current drafts:**
+```
+make check-drafts
+```
+
+What each rule catches:
+
+| Rule | Catches |
+|---|---|
+| `Readability.*` | Flesch-Kincaid, SMOG, ARI — flags dense or complex prose |
+| `write-good.Passive` | Passive voice constructions |
+| `write-good.Weasel` | Vague intensifiers: *largely*, *very*, *quite*, *simply* |
+| `write-good.E-Prime` | Overuse of "to be" verbs (suggestions only) |
+| `proselint` | Redundancies, skunked terms, misused expressions |
+
+To accept additional domain-specific terms (e.g. `Kubernetes`, `gRPC`), add them to `.vale/styles/config/vocabularies/blog/accept.txt`.
+
 ## How to install older version of Hugo o Mac?
 
 ```
