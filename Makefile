@@ -14,6 +14,7 @@ prepare:
 	git submodule update  --init
 
 build:
+	git -C public rm -rf --ignore-unmatch --quiet .
 	$(HUGO) --minify --buildDrafts=false
 
 update-themes:
